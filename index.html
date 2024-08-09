@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odin Library</title>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./normalize.css" type="text/css">
+    <link rel="stylesheet" href="./styles.css" type="text/css">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Odin's Free Library</h1>
+    </div>
+
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <div class="menu">
+            <label for="add">ADD</label>
+            <input type="button" id="add" value="Add book">
+
+            <label for="sorting">SORT BY</label>
+            <select id="sorting">
+                <option id="az">A-Z</option>
+                <option id="za">Z-A</option>
+                <option id="lastnew">Last - New added</option>
+                <option id="newlast">New - Last added</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="main">
+        <h2>Books</h2>
+        <div id="library"></div>
+    </div>
+    
+</body>
+</html>

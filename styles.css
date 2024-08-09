@@ -1,0 +1,32 @@
+/* Normalise headings */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+/********************
+ *   PAGE LAYOUT     *
+ *********************/
+
+ body {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: 100px 1fr;
+    grid-template-areas: "header header" "sidebar main";
+ }
+
+ .header {
+    background-color: deepskyblue;
+    grid-area: header;
+ }
+
+ .sidebar {
+    background-color: rgb(168, 245, 171);
+    grid-area: sidebar;
+    height: calc(100vh - 100px);
+ }
+
+ .main {
+    background-color: rgb(247, 199, 121);
+    grid-area: main;
+    height: calc(100vh - 100px);
+ }
