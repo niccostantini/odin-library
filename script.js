@@ -28,10 +28,10 @@ function Book(title, author, date) {
   this.date = date;
 }
 
-function createDeleteButtons() {
-    const deleteButtons = document.querySelectorAll('input[name="delete"]');
+function linkDeleteButtons(id) {
+    const deleteButton = document.querySelector(`input[id="${id}"]`);
 
-    deleteButtons.forEach(button => button.addEventListener("click", function(event) {
+    deleteButton.addEventListener("click", function(event) {
     let currentButton = event.target;
     let title = currentButton.id;
 
@@ -39,7 +39,7 @@ function createDeleteButtons() {
 
     console.log(currentButton.id);
 
-        }) )
+        })
 }
 
 function displayBooks() {
@@ -117,7 +117,7 @@ function displayBooks() {
     document.querySelector('#library').appendChild(newBook); // Example container
 
     //Add delete buttons
-    createDeleteButtons();
+    linkDeleteButtons(book.title);
     }  )
 }
 
