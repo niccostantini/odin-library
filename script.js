@@ -72,8 +72,32 @@ function displayBooks() {
     const newBookUnder = document.createElement('div');
     newBookUnder.classList.add('bookUnder');
 
+/* <div class="commands">
+    <input type="button" name="delete" id="delete" value="Delete">&nbsp;&nbsp;
+    <input type="button" name="readStatus" id="delete" value="Read">
+</div> */
+
+    const commands = document.createElement("div");
+    commands.classList.add("commands")
+
+    const deleteButton = document.createElement('input');
+    deleteButton.type = "button";
+    deleteButton.name = "delete";
+    deleteButton.value = "Delete";
+    deleteButton.id = book.title;
+
+    const readButton = document.createElement('input');
+    readButton.type = "button";
+    readButton.name = "readStutus";
+    readButton.value = "Read";
+    readButton.id = book.pages;
+
+    commands.appendChild(deleteButton);
+    commands.appendChild(readButton);
+
     newBook.appendChild(newBookCover);
     newBook.appendChild(newBookUnder);
+    newBook.appendChild(commands);
 
     // Now append the newBook element to the DOM, e.g., to a parent container
     document.querySelector('#library').appendChild(newBook); // Example container
