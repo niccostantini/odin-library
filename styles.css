@@ -1,3 +1,23 @@
+/* DIALOG FADEIN*/
+
+@keyframes fadein{
+    0%{
+      opacity:0;
+    }
+    100%{
+      opacity:1;
+    }
+  }
+
+  @keyframes fadeOut{
+    0%{
+      opacity:1;
+    }
+    100%{
+      opacity:0;
+    }
+  }
+
 /* Normalise headings */
 /* FONT BY ROMAN POLISHCHUCK*/
 
@@ -18,10 +38,58 @@ body {
 /********************
  *       DIALOG     *
  *********************/
+ .username {
+    font-size: 20px;
+    transition: all 0.2s ease;
+}
+
+.username:hover {
+    font-size: 21px;
+    transform: translateX(3px);
+    transition: all 0.2s ease;
+
+}
+
+.userImg {
+    height: 45px;
+    width: 45px;
+    border: black solid 2px;
+    border-radius: 50%;
+    background-image: url(./assets/images/blackbird.jpg);
+    background-size: 100px;
+    background-position: 90% 0;
+}
+
+.github:hover {
+    transform:scale(120%);
+    transition: transform 0.2s ease;
+}
+
+.github {
+    transition: all 0.2s ease;
+}
+
+.myself, .myself a, .header {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.myself, .myself a {
+     align-items: center;
+     gap: 10px;
+}
+
 
 dialog[open] {
-
+    animation: fadein 0.3s ease-in forwards;
     border: 3px solid black;
+    height: 260PX;
 }
 
 dialog[open] > form {
@@ -48,7 +116,19 @@ dialog[open] > form {
     background-color: white;
     box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.239);
     transition: ease all 0.2s;
- } 
+    cursor: pointer;
+ }
+
+ input[type="button"], input[type="submit"], input[type="reset"], input[type="text"], input[type="number"], select {
+    padding: 5px 8px;
+ }
+
+ input[type="text"]:focus, input[type="number"]:focus, select:focus {
+    outline: none !important;
+    border: 3px solid black;
+ }
+
+
 
  input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
     background-color: rgb(232, 232, 232);
@@ -63,8 +143,7 @@ dialog[open] > form {
  } 
 
  input[type="text"], 
- input[type="number"],
- select {
+ input[type="number"] {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
  }
 
@@ -100,12 +179,15 @@ dialog[open] > form {
     grid-area: header;
     padding: 20px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.239);
+    align-items: center;
+    justify-content: space-between;
  }
 
  .sidebar {
     padding: 20px;
     grid-area: sidebar;
     height: calc(100vh - 100px);
+    box-shadow: 3px 0 3px rgba(0, 0, 0, 0.239);
  }
 
  .sidebar h2{
@@ -116,24 +198,23 @@ dialog[open] > form {
     grid-area: main;
     height: calc(100vh - 100px);
     padding: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
  }
 
  #library {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 211px));
-    grid-template-rows: repeat(3, minmax(275px, 280px));
+    grid-template-rows: repeat(auto-fit, minmax(275px, 280px));
  }
 
  .bookCover {
-    background: linear-gradient(to right, rgb(60, 13, 20) 2px, rgba(255, 255, 255, 0.5) 4px, rgba(255, 255, 255, 0.25) 5px, rgba(255, 255, 255, 0.25) 4px, transparent 8px, transparent 10px, rgba(255, 255, 255, 0.25) 10px, transparent 22px), url(./assets/images/bookcover-red.png);
+    background: linear-gradient(to right, rgb(60, 13, 20) 2px, rgba(255, 255, 255, 0.5) 4px, rgba(255, 255, 255, 0.25) 5px, rgba(255, 255, 255, 0.25) 4px, transparent 8px, transparent 10px, rgba(255, 255, 255, 0.25) 10px, transparent 22px), url("./assets/images/bookcover-green.png");
     margin: 20px;
     color: rgb(255, 255, 255);
     border-radius: 6px;
     position: absolute;
     height: 200px;
-    width: 160px;
+    width: 170px;
     z-index: 1;
     transition: transform 0.3s ease-out;
  }
@@ -146,7 +227,7 @@ dialog[open] > form {
  .bookUnder {
     position: absolute;
     height: 200px;
-    width: 160px;
+    width: 170px;
     z-index: 0;
     background-color: rgb(255, 248, 200);
     border: 1px solid rgba(233, 223, 155, 0.584);
@@ -189,3 +270,21 @@ dialog[open] > form {
     width: 160px;
     justify-content: space-evenly;
 }
+
+
+/**********/
+
+input[name="readOrNot"].read {
+    background-color: rgba(21, 255, 0, 0.345);
+}
+input[name="readOrNot"].read:hover {
+    background-color: rgba(21, 255, 0, 0.622);
+}
+
+input[name="readOrNot"].unread {
+    background-color: rgba(255, 0, 0, 0.215);
+}
+input[name="readOrNot"].unread:hover {
+    background-color: rgba(255, 0, 0, 0.367);
+}
+
