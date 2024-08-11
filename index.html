@@ -17,22 +17,56 @@
     <div class="sidebar">
         <h2>Menu</h2>
         <div class="menu">
-            <label for="add">ADD</label>
-            <input type="button" id="add" value="Add book">
 
-            <label for="sorting">SORT BY</label>
-            <select id="sorting">
-                <option id="az">A-Z</option>
-                <option id="za">Z-A</option>
-                <option id="lastnew">Last - New added</option>
-                <option id="newlast">New - Last added</option>
-            </select>
+            <div class="formElement">
+                <input type="button" id="add" value="Add book">
+
+                <dialog>
+                    <form id="addBook" name="addBook">
+
+                        <div class="formElement"><label for="title">TITLE</label><input type="text" name="title" id="title"></div>
+                        <div class="formElement"><label for="author">AUTHOR</label><input type="text" name="author" id="author"></div>
+                        <div class="formElement"><label for="year">YEAR</label><input type="number" name="year" id="year"></div>
+                        <div class="formElement"><input type="submit" id="send" form="addBook" value="Add"><input type="reset" id="cancel" value="Cancel" autofocus></div>
+                    
+                    </form>
+                 
+                </dialog>
+            </div>
+
+            <div class="formElement">
+                <label for="sorting">SORT BY</label>
+                <select id="sorting">
+                    <option id="az">A-Z</option>
+                    <option id="za">Z-A</option>
+                    <option id="lastnew">Last - New added</option>
+                    <option id="newlast">New - Last added</option>
+                </select>
+            </div>
         </div>
     </div>
 
     <div class="main">
         <h2>Books</h2>
-        <div id="library"></div>
+        <div id="library">
+
+     <!-- TEMPLATE BOOK
+            <div class="book">
+            <div class="bookCover">
+                <h3 class="title">Book Title</h3>
+                <div class="details">
+                    <div class="top">
+                        <h4 class="author">John Doe</h4>
+                        <div class="date">2024</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bookUnder"></div>
+            </div>
+        -->
+            
+        </div>
     </div>
     
 </body>

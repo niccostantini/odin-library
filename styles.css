@@ -3,6 +3,48 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+/* Choose font*/
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/********************
+ *       DIALOG     *
+ *********************/
+
+dialog[open] > form {
+    display: grid;
+    grid-template-rows: repeat(4, 30px);
+    gap: 25px;
+    height: 200px;
+ }
+
+ .formElement {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+ }
+
+ .formElement label {
+    font-size: 11px;
+ }
+
+ dialog .formElement:last-child {
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: flex-start;
+ }
+
+
+ ::backdrop {
+    background-color: rgb(0, 0, 0);
+    opacity: 0.75;
+  }
+
+
 /********************
  *   PAGE LAYOUT     *
  *********************/
@@ -30,3 +72,58 @@ h1, h2, h3, h4, h5, h6 {
     grid-area: main;
     height: calc(100vh - 100px);
  }
+
+ #library {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 200px));
+    grid-template-rows: repeat(3, minmax(210px, 240px));
+ }
+
+ .bookCover {
+    background: linear-gradient(to right, rgb(60, 13, 20) 2px, rgba(255, 255, 255, 0.5) 4px, rgba(255, 255, 255, 0.25) 5px, rgba(255, 255, 255, 0.25) 4px, transparent 8px, transparent 10px, rgba(255, 255, 255, 0.25) 10px, transparent 22px), url(./assets/images/bookcover-red.png);
+    margin: 20px;
+    color: rgb(255, 255, 255);
+    border-radius: 6px;
+    position: absolute;
+    height: 200px;
+    width: 160px;
+    z-index: 1;
+    transition: transform 0.3s ease-out;
+ }
+
+ .bookCover:hover {
+    transform: skewY(-3deg) translateY(-3px) rotate3d(0, 1, 0, 2deg);
+    transition: transform 0.3s ease-out;
+ }
+
+ .bookUnder {
+    position: absolute;
+    height: 200px;
+    width: 160px;
+    z-index: 0;
+    background-color: white;
+    border-radius: 6px;
+    margin: 25px;
+ }
+
+ .bookCover > h3, .details {
+    padding: 12px 0 0 25px;
+ }
+
+.bookCover > * {
+    text-shadow:  -1px -1px #444;
+ }
+
+ .details {
+    font-size: smaller;
+ }
+
+ .pages {
+    text-align: right;
+    padding-right: 15px;
+    font-size: 10px;
+ }
+
+.top {
+    margin-bottom: auto;
+}
