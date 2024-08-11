@@ -28,6 +28,20 @@ function Book(title, author, date) {
   this.date = date;
 }
 
+function createDeleteButtons() {
+    const deleteButtons = document.querySelectorAll('input[name="delete"]');
+
+    deleteButtons.forEach(button => button.addEventListener("click", function(event) {
+    let currentButton = event.target;
+    let title = currentButton.id;
+
+    deleteBook(title);
+
+    console.log(currentButton.id);
+
+        }) )
+}
+
 function displayBooks() {
 
     while (library.firstChild) {
@@ -101,8 +115,22 @@ function displayBooks() {
 
     // Now append the newBook element to the DOM, e.g., to a parent container
     document.querySelector('#library').appendChild(newBook); // Example container
+
+    //Add delete buttons
+    createDeleteButtons();
     }  )
 }
+
+function deleteBook(titleToDelete) {
+    // Find the index of the book with the matching title
+    const bookIndex = myLibrary.findIndex(book => book.title === titleToDelete);
+
+      myLibrary.splice(bookIndex, 1);
+      console.log(`The book titled "${titleToDelete}" has been deleted.`);
+
+      displayBooks();
+
+  }
 
 
 form.addEventListener("submit", function(e) {
@@ -118,7 +146,9 @@ form.addEventListener("submit", function(e) {
     dialog.close();
 
     displayBooks()
+
 })
+
 
 
 
